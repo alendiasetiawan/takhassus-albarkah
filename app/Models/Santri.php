@@ -1,0 +1,37 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
+class Santri extends Model
+{
+    use HasFactory;
+
+    protected $table = 'santri';
+    protected $guarded = [];
+
+    public function program(): BelongsTo
+    {
+        return $this->belongsTo(Program::class, 'program_id', 'id');
+    }
+
+    public static function cariNama($tahunPsb, $dataSearch) {
+        return Santri::join('program', 'santri.program_id', 'program.id')
+        ->where('tahun_psb', $tahunPsb)
+        ->where('nama', 'like', '%'.$dataSearch.'%')
+        ->select('nama', 'jk', 'hp', 'santri.created_at', 'kode_registrasi', 'nama_program')
+        ->get();
+    }
+
+    public static function cariNamaSemua($tahunPsb) {
+        return Santri::join('program', 'santri.program_id', 'program.id')
+        ->where('tahun_psb', $tahunPsb)
+        ->select('nama', 'jk', 'hp', 'santri.created_at', 'kode_registrasi', 'nama_program')
+        ->get();
+    }
+
+}
