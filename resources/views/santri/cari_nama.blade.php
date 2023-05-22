@@ -7,7 +7,7 @@
 @section('content')
 <div class="help-center-header rounded d-flex flex-column justify-content-center align-items-center bg-help-center">
     <h3 class="text-center"> Lihat Detail Data Santri </h3>
-    <p class="text-center px-3 mb-2">Untuk melihat detail data, masukan <b>Kode Registrasi</b> anda di bawah ini</p>
+    <p class="text-center px-3 mb-2">Untuk melihat detail data, masukan <b class="text-primary">Kode Registrasi</b> anda di bawah ini</p>
     <form method="GET" action="/detail-nama">
         <input type="text" class="form-control"
         placeholder="Kode registrasi"

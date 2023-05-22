@@ -60,33 +60,6 @@
             <h5 class="mb-0">Program <b class="text-primary">{{ $program->nama_program }}</b></h5>
             </div>
             <div class="card-body">
-                <button
-                    class="btn btn-primary btn-sm me-1 mb-2"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#perhatian"
-                    aria-expanded="false"
-                    aria-controls="perhatian">
-                    Wajib Dibaca! (Klik)
-                </button>
-
-                <div class="collapse mt-2" id="perhatian">
-                    <p>
-                        <b>PERHATIAN!</b><br>
-                        Sebelum mengisi formulir, harap memperhatikan beberapa poin berikut:<br>
-                        <ol>
-                            <li>Pastikan anda sudah melunasi biaya pendaftaran sebesar <b>Rp {{ number_format($psb->biaya_pendaftaran,0,',','.') }}.</b>
-                            Pembayaran dapat dilakukan melalui transfer ke rekening: <br>
-                            <b>BSI<br>
-                            756 2929 007<br>
-                            a/n Yayasan Cahaya Sunnah</b></li>
-                            <li>Siapkan file berkas yang dibutuhkan yaitu : <b>Pas photo & KTP/SIM/KTS/KK</b> </li>
-                            <li>Isi formulir dengan lengkap dan benar, lalu upload semua berkas yang diminta.
-                                Pastikan koneksi yang anda gunakan <b>cepat dan stabil</b></li>
-                        </ol>
-                    </p>
-                </div>
-
                 <form method="POST" action="/isi-form/store" enctype="multipart/form-data">
                     @csrf
                     <div class="row">

@@ -27,4 +27,10 @@ class InfoPsbController extends Controller
 
         return view('guest.info_psb', $data);
     }
+
+    public function download(){
+        $file = public_path('files/Flyer-PSB-Takhassus-AlBarkah-2023-2024.pdf');
+
+        return response()->download($file);
+    }
 }

@@ -10,10 +10,6 @@
 
 <!--Daftar Program-->
 <div class="row">
-    <div class="col-12">
-        <h4 class="fw-semibold mb-3 mt-3">Pilih Program</h4>
-    </div>
-
     @if ($psb->status_psb == 'Tutup')
     <div class="col-12 mb-2">
         <div class="alert alert-danger" role="alert">
@@ -21,6 +17,31 @@
         </div>
     </div>
     @else
+        <!--Instruksi Khusus-->
+        <div class="col-12 mt-2">
+            <div class="card mt-1">
+                <div class="card-body">
+                    <p>
+                        <b>PERHATIAN!</b><br>
+                        Sebelum anda mendaftar, harap memperhatikan beberapa poin berikut:<br>
+                        <ol>
+                            <li>Pastikan anda sudah melunasi biaya pendaftaran sebesar <b class="text-primary">Rp {{ number_format($psb->biaya_pendaftaran,0,',','.') }}.</b>
+                            Pembayaran dapat dilakukan melalui transfer ke rekening: <br>
+                            <b class="text-primary">BSI<br>
+                            756 2929 007<br>
+                            a/n Yayasan Cahaya Sunnah</b></li>
+                            <li>Siapkan file berkas yang dibutuhkan yaitu : <b class="text-primary">Pas photo & KTP/SIM/KTS/KK</b> </li>
+                            <li>Isi formulir dengan lengkap dan benar, lalu upload semua berkas yang diminta.
+                                Pastikan koneksi yang anda gunakan <b class="text-primary">cepat dan stabil</b></li>
+                        </ol>
+                        Selanjutnya silahkan pilih program yang tersedia di bawah ini:
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <h4 class="fw-semibold mb-3 mt-3">Pilih Program</h4>
+        </div>
         <!--Tajwid-->
         <div class="col-lg-4 col-md-6 col-12 mb-2">
             <button

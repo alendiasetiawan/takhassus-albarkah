@@ -396,6 +396,30 @@
     </section>
     <!--#Biaya Pendidikan-->
 
+    <!--Download Brosur-->
+    <section class="position-relative bg-contain bg-pos-l" data-bg-img="{{ asset('landing/images/bg/02.png') }}">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg-6 col-md-12 mb-3">
+              <a href="{{ asset('landing/images/Brosur-PSB-Takhassus-1.jpg') }}" target="_blank">
+                <img class="img-fluid wow fadeInUp" src="{{ asset('landing/images/Brosur-PSB-Takhassus-1.jpg') }}" alt="">
+              </a>
+            </div>
+            <div class="col-lg-6 col-md-12 mb-3">
+              <a href="{{ asset('landing/images/Brosur-PSB-Takhassus-2.jpg') }}" target="_blank">
+                <img class="img-fluid wow fadeInUp" src="{{ asset('landing/images/Brosur-PSB-Takhassus-2.jpg') }}" alt="">
+              </a>
+            </div>
+            <div class="col-lg-12 col-12 d-flex justify-content-center">
+              <button class="btn btn-theme wow fadeInUp" onclick="location.href='/download-brosur'">
+                  Download Brosur
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    <!--#Download Brosur-->
+
     <!--Daftar Sekarang-->
     <div class="subscribe-box mt-3 mb-5 wow fadeInUp" data-wow-duration="2s">
         <div class="container">

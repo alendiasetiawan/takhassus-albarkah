@@ -21,6 +21,7 @@ Route::get('/program-bahasa-arab', [ProgramController::class, 'bahasaArab']);
 Route::get('/program-takmili', [ProgramController::class, 'takmili']);
 Route::get('/program-ulum-syariah', [ProgramController::class, 'ulumSyariah']);
 Route::get('/psb', [InfoPsbController::class, 'index']);
+Route::get('/download-brosur', [InfoPsbController::class, 'download']);
 
 Route::get('/pilih-program', [DaftarController::class, 'pilihProgram']);
 Route::get('/isi-form/{id}', [DaftarController::class, 'create'])->name('isiForm.create');
