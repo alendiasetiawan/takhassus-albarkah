@@ -34,4 +34,5 @@ Route::get('/detail-nama', [CariNamaController::class, 'detail'])->name('detailN
 Route::get('/edit-biodata/{kode}', [CariNamaController::class, 'edit']);
 Route::post('/edit-biodata/update', [CariNamaController::class, 'update']);
 
+require __DIR__ . '/admin.php';
 
