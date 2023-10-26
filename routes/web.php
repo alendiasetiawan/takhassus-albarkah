@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\Guest\InfoPsbController;
 use App\Http\Controllers\Guest\ProgramController;
 use App\Http\Controllers\Santri\DaftarController;
@@ -9,7 +10,7 @@ use App\Http\Controllers\Santri\CariNamaController;
 use App\Http\Controllers\Guest\LandingPageController;
 
 Auth::routes();
-
+Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/', [LandingPageController::class, 'index']);

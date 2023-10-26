@@ -44,12 +44,12 @@ class LoginController extends Controller
         $input = $request->all();
 
         if(auth()->attempt(array('email'=>$input['email'],'password'=>$input['password']))){
-            if(auth()->user()->role_id==3 || auth()->user()->role_id==1 || auth()->user()->role_id==4 || auth()->user()->role_id==6) {
+            if(auth()->user()->role_id==1) {
                 if($request->has('simpanpwd')) {
                     Cookie::queue('saveuser',$request->email,20160);
                     Cookie::queue('savepwd',$request->password,20160);
                 }
-                return redirect()->route('dashboard');
+                return redirect()->route('admin::dashboard_admin');
             }
             elseif(auth()->user()->role_id==5) {
                 if($request->has('simpanpwd')) {
