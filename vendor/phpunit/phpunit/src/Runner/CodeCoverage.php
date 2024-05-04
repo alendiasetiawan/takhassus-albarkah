@@ -13,7 +13,6 @@ use function file_put_contents;
 use function sprintf;
 use PHPUnit\Event\Facade as EventFacade;
 use PHPUnit\Event\TestData\MoreThanOneDataSetFromDataProviderException;
-use PHPUnit\Event\TestData\NoDataSetFromDataProviderException;
 use PHPUnit\Framework\TestCase;
 use PHPUnit\TextUI\Configuration\CodeCoverageFilterRegistry;
 use PHPUnit\TextUI\Configuration\Configuration;
@@ -49,7 +48,11 @@ final class CodeCoverage
     private bool $collecting                                            = false;
     private ?TestCase $test                                             = null;
     private ?Timer $timer                                               = null;
-    private array $linesToBeIgnored                                     = [];
+
+    /**
+     * @psalm-var array<string,list<int>>
+     */
+    private array $linesToBeIgnored = [];
 
     public static function instance(): self
     {
@@ -105,11 +108,11 @@ final class CodeCoverage
         if ($codeCoverageFilterRegistry->get()->isEmpty()) {
             if (!$codeCoverageFilterRegistry->configured()) {
                 EventFacade::emitter()->testRunnerTriggeredWarning(
-                    'No filter is configured, code coverage will not be processed'
+                    'No filter is configured, code coverage will not be processed',
                 );
             } else {
                 EventFacade::emitter()->testRunnerTriggeredWarning(
-                    'Incorrect filter configuration, code coverage will not be processed'
+                    'Incorrect filter configuration, code coverage will not be processed',
                 );
             }
 
@@ -137,7 +140,6 @@ final class CodeCoverage
 
     /**
      * @throws MoreThanOneDataSetFromDataProviderException
-     * @throws NoDataSetFromDataProviderException
      */
     public function start(TestCase $test): void
     {
@@ -159,7 +161,7 @@ final class CodeCoverage
 
         $this->codeCoverage->start(
             $test->valueObjectForEvents()->id(),
-            $size
+            $size,
         );
 
         $this->collecting = true;
@@ -199,6 +201,21 @@ final class CodeCoverage
     {
         if (!$this->isActive()) {
             return;
+        }
+
+        if ($configuration->hasCoveragePhp()) {
+            $this->codeCoverageGenerationStart($printer, 'PHP');
+
+            try {
+                $writer = new PhpReport;
+                $writer->process($this->codeCoverage(), $configuration->coveragePhp());
+
+                $this->codeCoverageGenerationSucceeded($printer);
+
+                unset($writer);
+            } catch (CodeCoverageException $e) {
+                $this->codeCoverageGenerationFailed($printer, $e);
+            }
         }
 
         if ($configuration->hasCoverageClover()) {
@@ -259,7 +276,7 @@ final class CodeCoverage
                 $writer = new HtmlReport(
                     sprintf(
                         ' and <a href="https://phpunit.de/">PHPUnit %s</a>',
-                        Version::id()
+                        Version::id(),
                     ),
                     Colors::from(
                         $configuration->coverageHtmlColorSuccessLow(),
@@ -270,27 +287,12 @@ final class CodeCoverage
                     ),
                     Thresholds::from(
                         $configuration->coverageHtmlLowUpperBound(),
-                        $configuration->coverageHtmlHighLowerBound()
+                        $configuration->coverageHtmlHighLowerBound(),
                     ),
-                    $customCssFile
+                    $customCssFile,
                 );
 
                 $writer->process($this->codeCoverage(), $configuration->coverageHtml());
-
-                $this->codeCoverageGenerationSucceeded($printer);
-
-                unset($writer);
-            } catch (CodeCoverageException $e) {
-                $this->codeCoverageGenerationFailed($printer, $e);
-            }
-        }
-
-        if ($configuration->hasCoveragePhp()) {
-            $this->codeCoverageGenerationStart($printer, 'PHP');
-
-            try {
-                $writer = new PhpReport;
-                $writer->process($this->codeCoverage(), $configuration->coveragePhp());
 
                 $this->codeCoverageGenerationSucceeded($printer);
 
@@ -304,7 +306,7 @@ final class CodeCoverage
             $processor = new TextReport(
                 Thresholds::default(),
                 $configuration->coverageTextShowUncoveredFiles(),
-                $configuration->coverageTextShowOnlySummary()
+                $configuration->coverageTextShowOnlySummary(),
             );
 
             $textReport = $processor->process($this->codeCoverage(), $configuration->colors());
@@ -359,11 +361,11 @@ final class CodeCoverage
 
             $this->codeCoverage = new \SebastianBergmann\CodeCoverage\CodeCoverage(
                 $this->driver,
-                $filter
+                $filter,
             );
         } catch (CodeCoverageException $e) {
             EventFacade::emitter()->testRunnerTriggeredWarning(
-                $e->getMessage()
+                $e->getMessage(),
             );
         }
     }
@@ -373,8 +375,8 @@ final class CodeCoverage
         $printer->print(
             sprintf(
                 "\nGenerating code coverage report in %s format ... ",
-                $format
-            )
+                $format,
+            ),
         );
 
         $this->timer()->start();
@@ -388,8 +390,8 @@ final class CodeCoverage
         $printer->print(
             sprintf(
                 "done [%s]\n",
-                $this->timer()->stop()->asString()
-            )
+                $this->timer()->stop()->asString(),
+            ),
         );
     }
 
@@ -402,8 +404,8 @@ final class CodeCoverage
             sprintf(
                 "failed [%s]\n%s\n",
                 $this->timer()->stop()->asString(),
-                $e->getMessage()
-            )
+                $e->getMessage(),
+            ),
         );
     }
 

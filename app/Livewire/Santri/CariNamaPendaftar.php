@@ -9,28 +9,23 @@ use App\Services\InfoPsbService;
 class CariNamaPendaftar extends Component
 {
     public $search;
-    protected $updateQueryString = ['search'];
-    protected $InfoPsbService;
+    public $dataSantri;
 
     public function boot(InfoPsbService $info) {
         $this->InfoPsbService = $info;
+
+        $dataSearch = $this->search;
+        $tahunPsb = $this->InfoPsbService->tahunPsb();
+
+        if ($dataSearch != NULL){
+                $this->dataSantri = Santri::cariNama($tahunPsb, $dataSearch);
+        } else {
+                $this->dataSantri =  Santri::cariNamaSemua($tahunPsb);
+        }
     }
 
     public function render()
     {
-        $dataSearch = $this->search;
-        $tahunPsb = $this->InfoPsbService->tahunPsb();
-
-        if ($dataSearch != NULL) {
-            $data = [
-                'santri' => Santri::cariNama($tahunPsb, $dataSearch),
-            ];
-        } else {
-            $data = [
-                'santri' => Santri::cariNamaSemua($tahunPsb),
-            ];
-        }
-
-        return view('livewire.santri.cari-nama-pendaftar', $data);
+        return view('livewire.santri.cari-nama-pendaftar');
     }
 }
