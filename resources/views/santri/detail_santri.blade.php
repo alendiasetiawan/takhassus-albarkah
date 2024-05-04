@@ -87,7 +87,7 @@
                   type="button"
                   onclick="location.href='/edit-biodata/{{ $santri->kode_registrasi }}'"
                 >
-                  Edit Data
+                  Ubah Data
                 </button>
               </div>
             </div>
