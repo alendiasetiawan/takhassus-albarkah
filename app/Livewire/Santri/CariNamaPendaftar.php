@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Santri;
+namespace App\Livewire\Santri;
 
 use App\Models\Santri;
 use Livewire\Component;

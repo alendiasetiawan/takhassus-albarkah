@@ -3,7 +3,7 @@
     <p class="text-center px-3 mb-2">Cek status pendaftaran anda disini!</p>
     <div class="input-wrapper mb-3 input-group input-group-lg input-group-merge">
       <span class="input-group-text" id="basic-addon1"><i class="ti ti-search"></i></span>
-      <input type="text" class="form-control" placeholder="Ketik nama anda..." aria-label="Search" wire:model="search" aria-describedby="basic-addon1" />
+      <input type="text" class="form-control" placeholder="Ketik nama anda..." aria-label="Search" wire:model.live="search" aria-describedby="basic-addon1" />
     </div>
     <div class="row px-3">
         @if (!empty($search))
