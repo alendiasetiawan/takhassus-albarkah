@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitea0d669fa2f30b97704afdd66d7a326e
+class ComposerStaticInit9de69d7b97a09ca296f174438f13370f
 {
     public static $files = array (
         '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
@@ -361,8 +361,8 @@ class ComposerStaticInitea0d669fa2f30b97704afdd66d7a326e
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-factory/src',
-            1 => __DIR__ . '/..' . '/psr/http-message/src',
+            0 => __DIR__ . '/..' . '/psr/http-message/src',
+            1 => __DIR__ . '/..' . '/psr/http-factory/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -585,6 +585,7 @@ class ComposerStaticInitea0d669fa2f30b97704afdd66d7a326e
         'App\\Http\\Middleware\\ValidateSignature' => __DIR__ . '/../..' . '/app/Http/Middleware/ValidateSignature.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Http\\Requests\\Requests\\FormSantriBaruRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Requests/FormSantriBaruRequest.php',
+        'App\\Livewire\\Admin\\DashboardAdmin' => __DIR__ . '/../..' . '/app/Livewire/Admin/DashboardAdmin.php',
         'App\\Livewire\\Santri\\CariNamaPendaftar' => __DIR__ . '/../..' . '/app/Livewire/Santri/CariNamaPendaftar.php',
         'App\\Models\\InfoPsb' => __DIR__ . '/../..' . '/app/Models/InfoPsb.php',
         'App\\Models\\KodeNegara' => __DIR__ . '/../..' . '/app/Models/KodeNegara.php',
@@ -6952,9 +6953,9 @@ class ComposerStaticInitea0d669fa2f30b97704afdd66d7a326e
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitea0d669fa2f30b97704afdd66d7a326e::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitea0d669fa2f30b97704afdd66d7a326e::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInitea0d669fa2f30b97704afdd66d7a326e::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit9de69d7b97a09ca296f174438f13370f::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit9de69d7b97a09ca296f174438f13370f::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit9de69d7b97a09ca296f174438f13370f::$classMap;
 
         }, null, ClassLoader::class);
     }

@@ -41,29 +41,21 @@ class LoginController extends Controller
     }
 
     public function login(Request $request) {
-        $input = $request->all();
+        $inputEmail = $request->email;
+        $inputPassword = $request->password;
 
-        if(auth()->attempt(array('email'=>$input['email'],'password'=>$input['password']))){
+        if(auth()->attempt(array('email'=>$inputEmail,'password'=>$inputPassword))){
             if(auth()->user()->role_id==1) {
                 if($request->has('simpanpwd')) {
-                    Cookie::queue('saveuser',$request->email,20160);
-                    Cookie::queue('savepwd',$request->password,20160);
+                    Cookie::queue('saveuser',$request->email,40160);
+                    Cookie::queue('savepwd',$request->password,40160);
                 }
-                return redirect()->route('admin::dashboard_admin');
-            }
-            elseif(auth()->user()->role_id==5) {
-                if($request->has('simpanpwd')) {
-                    Cookie::queue('saveuser',$request->email,20160);
-                    Cookie::queue('savepwd',$request->password,20160);
-                }
-                return redirect()->route('dashboardWawancara');
             }
             else {
                 if($request->has('simpanpwd')) {
-                    Cookie::queue('saveuser',$request->email,20160);
-                    Cookie::queue('savepwd',$request->password,20160);
+                    Cookie::queue('saveuser',$request->email,40160);
+                    Cookie::queue('savepwd',$request->password,40160);
                 }
-                return redirect()->route('home');
             }
         } else {
             return redirect()->route('login')->with('flash_message_error','GAGAL Login, Username/Password Salah!');

@@ -6,11 +6,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,minimal-ui">
-    <meta name="description" content="Aplikasi sistem informasi manajemen pondok online terintegrasi">
-    <meta name="keywords" content="siakad pondok, sistem tahfizh, sistem informasi pondok">
-    <meta name="author" content="SIMPONI">
+    <meta name="description" content="Sistem Informasi Pendaftaran Santri Baru">
+    <meta name="author" content="Takhassus Al Barkah">
     <title>{{ $title ?? 'Home' }} - Takhassus Al Barkah | Sistem Informasi Penerimaan Santri Baru</title>
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('style/app-assets/images/ico/favicon.ico') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('landing/images/takhassus-icon.ico') }}">
     <link href="https://fonts.googleapis.com/css?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
 
     <!-- BEGIN: Vendor CSS-->
@@ -39,13 +38,13 @@
 
 <!-- BEGIN: Body-->
 
-<body class="vertical-layout vertical-menu-modern navbar-floating footer-static menu-collapsed" data-open="click" data-menu="vertical-menu-modern" data-col="">
-    {{-- @php
+<body class="vertical-layout vertical-menu-modern navbar-floating footer-static" data-open="click" data-menu="vertical-menu-modern" data-col="">
+    @php
         $user = DB::table('users')
-        ->join('role', 'users.role_id','role.id')
+        ->join('roles', 'users.role_id','roles.id')
         ->where('users.email', Auth::user()->email)
         ->first();
-        $fullname = $user->nama_lengkap;
+        $fullname = $user->nama;
         $nama = explode(' ', $fullname);
         $nama_depan = $nama[0];
         if(isset($nama[1])) {
@@ -56,49 +55,18 @@
         }
 
         $level = $user->nama_role;
-        $jenisKelamin = $user->jk;
-    @endphp --}}
+    @endphp
 
     {{-- Begin: Header --}}
-    @if (Auth::user()->role_id == 1)
-        @include('template.component.header.superadmin_header')
-    @elseif (Auth::user()->role_id == 2)
-        @include('layouts.headers.santri_header')
-    @elseif (Auth::user()->role_id == 3)
-        @include('template.component.header.pengampu_header')
-    @elseif (Auth::user()->role_id == 4)
-        @include('template.component.header.admintahfizh_header')
-    @elseif (Auth::user()->role_id == 5)
-        @include('template.component.header.musyrif_header')
-    @elseif (Auth::user()->role_id == 8)
-        @include('layouts.headers.guru_header')
-    @elseif (Auth::user()->role_id == 12)
-        @include('template.component.header.kepalaasrama_header')
-    @elseif (Auth::user()->role_id == 13)
-        @include('template.component.header.admintalent_header')
-    @else
-        @include('template.component.header')
-    @endif
+    @include('layouts.navbars.admin_navbar')
     {{-- END: Sidebar --}}
 
     {{-- Begin: Sidebar --}}
-    @if (Auth::user()->role_id == 3)
-        @include('layouts.sidebars.pengampu_sidebar')
-    @elseif (Auth::user()->role_id == 2)
-        @include('layouts.sidebars.santri_sidebar')
-    @elseif (Auth::user()->role_id == 13)
-        @include('layouts.sidebars.admintalent_sidebar')
-    @elseif (Auth::user()->role_id == 8)
-        @include('layouts.sidebars.guru_sidebar')
-    @elseif (Auth::user()->role_id == 12)
-        @include('layouts.sidebars.kepala_asrama_sidebar')
-    @else
-        @include('template.component.sidebar')
-    @endif
+    @include('layouts.sidebars.admin_sidebar')
     {{-- END: Sidebar --}}
 
     <!-- BEGIN: Bottom Navbar -->
-    @include('template.component.bottom_navbar')
+    {{-- @include('template.component.bottom_navbar') --}}
     <!-- END: Bottom Navbar -->
 
     <!-- BEGIN: Content-->
@@ -118,7 +86,7 @@
     <div class="sidenav-overlay"></div>
     <div class="drag-target"></div>
 
-    @include('layouts.parts.footer')
+    @include('layouts.footer')
 
     <!-- BEGIN: Vendor JS-->
     <script src="{{ asset('style/app-assets/vendors/js/vendors.min.js') }}" data-navigate-once></script>

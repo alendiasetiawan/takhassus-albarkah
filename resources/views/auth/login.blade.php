@@ -78,7 +78,7 @@
                     @csrf
                     <div class="mb-1">
                       <label class="form-label" for="username">Username</label>
-                      <input class="form-control @error('email') is-invalid @enderror" @if(\Cookie::has('saveuser')) value="{{ \Cookie::get('saveuser') }}" @endif type="text" name="email" placeholder="Contoh : 85775745484" autofocus tabindex="1"/>
+                      <input class="form-control @error('email') is-invalid @enderror" @if(\Cookie::has('saveuser')) value="{{ \Cookie::get('saveuser') }}" @endif type="text" name="email" tabindex="1"/>
                     </div>
 
                     <div class="mb-1">
@@ -86,7 +86,7 @@
                         <label class="form-label" for="password">Password</label>
                       </div>
                       <div class="input-group input-group-merge form-password-toggle">
-                        <input class="form-control form-control-merge @error('password') is-invalid @enderror" @if(\Cookie::has('savepwd')) value="{{ \Cookie::get('savepwd') }}" @endif id="password" type="password" name="password" placeholder="············" aria-describedby="login-password" tabindex="2"/>
+                        <input class="form-control form-control-merge @error('password') is-invalid @enderror" @if(\Cookie::has('savepwd')) value="{{ \Cookie::get('savepwd') }}" @endif id="password" type="password" name="password" aria-describedby="login-password" tabindex="2"/>
                         <span class="input-group-text cursor-pointer">
                             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
                         </span>
