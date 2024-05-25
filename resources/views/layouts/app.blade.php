@@ -93,7 +93,7 @@
     <!-- BEGIN Vendor JS-->
 
     <!-- BEGIN: Page Vendor JS-->
-    @stack('vendorScript')
+    @stack('vendorJS')
     <!-- END: Page Vendor JS-->
 
     <!-- BEGIN: Theme JS-->
@@ -102,7 +102,7 @@
     <!-- END: Theme JS-->
 
     <!-- BEGIN: Page JS-->
-    @stack('pageScript')
+    @stack('pageJS')
     <!-- END: Page JS-->
 
     <script>

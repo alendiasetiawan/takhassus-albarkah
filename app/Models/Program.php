@@ -58,4 +58,13 @@ class Program extends Model
         ->where('jenis_program_id', 3)
         ->get();
     }
+
+    public static function jumlahPendaftarPerCabang($tahunPsb) {
+        return Program::with(['santri' => function($query) use($tahunPsb) {
+            $query->where('tahun_psb', $tahunPsb)
+            ->select('nama','program_id');
+        }])
+        ->where('status_psb', 'Buka')
+        ->get();
+    }
 }
