@@ -13,8 +13,7 @@
                         </h1>
                         <p class="lead mb-4 wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.3s">
                             Tersedia program <b>Tajwid Al-Qur'an, Bahasa Arab, Takmili dan Ulum Asy-Syariah</b>, batas akhir
-                            pendaftaran
-                            tanggal <b>{{ \App\Helpers\TanggalHelper::konversiTanggalPenuh($psb->akhir_psb) }}</b>
+                            pendaftaran <b>{{ \App\Helpers\TanggalHelper::konversiTanggalPenuh($psb->akhir_psb) }}</b>
                         </p>
                         <a class="btn btn-theme wow fadeInUp" data-wow-duration="3s" data-wow-delay="0.5s"
                             href="/pilih-program" data-text="Daftar">
