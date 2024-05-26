@@ -36,6 +36,7 @@ class Program extends Model
             ->select('nama','program_id');
         }])
         ->where('jenis_program_id', 2)
+        ->where('status_psb', 'Buka')
         ->get();
     }
 

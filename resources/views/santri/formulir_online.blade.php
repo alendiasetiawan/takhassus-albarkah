@@ -325,10 +325,15 @@
                     </div>
 
                     <input type="hidden" name="programId" value="{{ $program->id }}">
-                    <input type="text" name="tahunPsb" value="{{ $tahunPsb }}">
-                    <input type="text" name="nominalTransfer" value="{{ $psb->biaya_pendaftaran }}">
+                    <input type="hidden" name="tahunPsb" value="{{ $tahunPsb }}">
+                    <input type="hidden" name="nominalTransfer" value="{{ $psb->biaya_pendaftaran }}">
 
+                    @if ($program->status_psb == 'Buka')
                     <button type="submit" class="btn btn-primary" id="simpan">Kirim</button>
+                    @else
+                    <button type="button" class="btn btn-primary" disabled>Tutup</button>
+                    @endif
+
                 </form>
             </div>
         </div>
