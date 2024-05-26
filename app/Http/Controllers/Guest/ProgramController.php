@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Guest;
 
+use App\Models\Kitab;
 use App\Models\Lembaga;
 use App\Models\Program;
 use Illuminate\Http\Request;
@@ -14,6 +15,7 @@ class ProgramController extends Controller
             'title' => 'Program Tajwid Al-Qur\'an',
             'lembaga' => Lembaga::find(1),
             'program' => Program::where('jenis_program_id', 1)->orderBy('id', 'asc')->get(),
+            'kitab' => Kitab::where('jenis_program_id', 1)->orderBy('id', 'asc')->get(),
         ];
 
         return view('guest.program_tajwid_quran', $data);
@@ -24,6 +26,10 @@ class ProgramController extends Controller
             'title' => 'Program Bahasa Arab',
             'lembaga' => Lembaga::find(1),
             'program' => Program::where('jenis_program_id', 2)->orderBy('id', 'asc')->get(),
+            'kitab' => Kitab::where('jenis_program_id', 2)
+            ->orderBy('id', 'asc')
+            ->get()
+            ->groupBy('kelas'),
         ];
 
         return view('guest.program_bahasa_arab', $data);
@@ -34,6 +40,7 @@ class ProgramController extends Controller
             'title' => 'Program Takmili',
             'lembaga' => Lembaga::find(1),
             'program' => Program::where('jenis_program_id', 4)->orderBy('id', 'asc')->get(),
+            'kitab' => Kitab::where('jenis_program_id', 4)->orderBy('id', 'asc')->get(),
         ];
 
         return view('guest.program_takmili', $data);
@@ -44,6 +51,10 @@ class ProgramController extends Controller
             'title' => 'Program Ulum Asy-Syari\'ah',
             'lembaga' => Lembaga::find(1),
             'program' => Program::where('jenis_program_id', 3)->orderBy('id', 'asc')->get(),
+            'kitab' => Kitab::where('jenis_program_id', 3)
+            ->orderBy('id', 'asc')
+            ->get()
+            ->groupBy('kelas'),
         ];
 
         return view('guest.program_ulum_syariah', $data);

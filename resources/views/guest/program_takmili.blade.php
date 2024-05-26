@@ -52,6 +52,15 @@
             sudah lancar membaca Al-Qur'an atau santri lulusan program Bahasa Arab Takhassus Al Barkah
         </p>
 
+        <h2 class="title z-index-1 mb-2">Kitab Yang Dipelajari</h2>
+        <p>
+            <ol>
+                @foreach ($kitab as $data)
+                    <li>{{ $data->nama_kitab }} ({{ $data->penulis }})</li>
+                @endforeach
+            </ol>
+        </p>
+
         <h2 class="title z-index-1 mb-2">Program Yang Tersedia</h2>
         <div class="accordion ms-lg-5 mt-3" id="accordion">
             @foreach ($program as $item)

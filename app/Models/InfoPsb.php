@@ -11,4 +11,5 @@ class InfoPsb extends Model
 
     protected $table = 'info_psb';
     protected $guarded = [];
+
 }
