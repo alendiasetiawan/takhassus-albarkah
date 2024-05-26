@@ -326,6 +326,7 @@
 
                     <input type="hidden" name="programId" value="{{ $program->id }}">
                     <input type="text" name="tahunPsb" value="{{ $tahunPsb }}">
+                    <input type="text" name="nominalTransfer" value="{{ $psb->biaya_pendaftaran }}">
 
                     <button type="submit" class="btn btn-primary" id="simpan">Kirim</button>
                 </form>
