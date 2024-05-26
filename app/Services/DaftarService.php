@@ -37,7 +37,8 @@ class DaftarService {
             'program_id' => $request->programId,
             'photo' => $filenamePhoto,
             'ktp' => $filenameKtp,
-            'transfer' => $filenameTransfer
+            'transfer' => $filenameTransfer,
+            'nominal_transfer' => $request->nominalTransfer
         ];
 
         return $data;

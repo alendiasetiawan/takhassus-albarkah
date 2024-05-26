@@ -35,6 +35,7 @@ return array(
     'App\\Http\\Middleware\\ValidateSignature' => $baseDir . '/app/Http/Middleware/ValidateSignature.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'App\\Http\\Requests\\Requests\\FormSantriBaruRequest' => $baseDir . '/app/Http/Requests/Requests/FormSantriBaruRequest.php',
+    'App\\Livewire\\Admin\\DashboardAdmin' => $baseDir . '/app/Livewire/Admin/DashboardAdmin.php',
     'App\\Livewire\\Santri\\CariNamaPendaftar' => $baseDir . '/app/Livewire/Santri/CariNamaPendaftar.php',
     'App\\Models\\InfoPsb' => $baseDir . '/app/Models/InfoPsb.php',
     'App\\Models\\KodeNegara' => $baseDir . '/app/Models/KodeNegara.php',

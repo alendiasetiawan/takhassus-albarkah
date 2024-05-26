@@ -52,6 +52,16 @@
             lulusan Program Takhassus Tajwid Al-Qur’an.
         </p>
 
+        <h2 class="title z-index-1 mb-2">Kitab Yang Dipelajari</h2>
+        @foreach ($kitab as $data => $value)
+        <strong>Kelas {{ $data }}</strong>
+        <ol>
+            @foreach ($value as $item)
+                <li>{{ $item->nama_kitab }} ({{ $item->penulis }})</li>
+            @endforeach
+        </ol>
+        @endforeach
+
         <h2 class="title z-index-1 mb-2">Program Yang Tersedia</h2>
         <div class="accordion ms-lg-5 mt-3" id="accordion">
             @foreach ($program as $item)

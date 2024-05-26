@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Cabang;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class TesMasuk extends Model
 {
@@ -11,4 +13,9 @@ class TesMasuk extends Model
 
     protected $table = 'tes_masuk_psb';
     protected $guarded = [];
+
+    public function cabang(): HasOne
+    {
+        return $this->hasOne(Cabang::class, 'id', 'cabang_id');
+    }
 }

@@ -47,7 +47,7 @@
       Program : <b>{{ $programPilihan }}</b><br>
       Tanggal Daftar : <b>{{ $tgl }} pukul {{ $jam }}</b><br><br>
 
-      Untuk melihat detail data anda, silahkan klik disini <a href="/detail-data-santri">Detail Data</a>
+      Untuk melihat detail data anda, silahkan klik disini <a href="/cari-nama">Detail Data</a>
     </p>
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
@@ -325,7 +325,8 @@
                     </div>
 
                     <input type="hidden" name="programId" value="{{ $program->id }}">
-                    <input type="hidden" name="tahunPsb" value="{{ $tahunPsb }}">
+                    <input type="text" name="tahunPsb" value="{{ $tahunPsb }}">
+                    <input type="text" name="nominalTransfer" value="{{ $psb->biaya_pendaftaran }}">
 
                     <button type="submit" class="btn btn-primary" id="simpan">Kirim</button>
                 </form>

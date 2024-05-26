@@ -52,9 +52,9 @@
                         </p>
                     </div>
                     <div class="col-lg-4 col-12 d-flex">
-                        <button type="button" class="btn btn-primary" onclick="location.href='/'">
+                        <button type="button" class="btn btn-primary" onclick="location.href='/pilih-program'">
                             <span class="ti-xs ti ti-arrow-back-up me-1"></span>
-                            Kembali Ke Beranda
+                            Kembali
                         </button>
                     </div>
                 </div>

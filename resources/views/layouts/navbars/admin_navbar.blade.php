@@ -11,11 +11,7 @@
                     </div>
                     <span class="avatar">
                         <img class="round"
-                        @if ($jenisKelamin == 'Laki-Laki')
-                            src="{{ asset('style/app-assets/images/avatars/user-ikhwan.png') }}"
-                        @else
-                            src="{{ asset('style/app-assets/images/avatars/user-akhwat.png') }}"
-                        @endif
+                        src="{{ asset('style/app-assets/images/avatars/user-ikhwan.png') }}"
                         alt="avatar" height="40" width="40">
                         <span class="avatar-status-online"></span>
                     </span>
@@ -87,11 +83,7 @@
                     </div>
                     <span class="avatar">
                         <img class="round"
-                        @if ($jenisKelamin == 'Laki-Laki')
-                            src="{{ asset('style/app-assets/images/avatars/user-ikhwan.png') }}"
-                        @else
-                            src="{{ asset('style/app-assets/images/avatars/user-akhwat.png') }}"
-                        @endif
+                        src="{{ asset('style/app-assets/images/avatars/user-ikhwan.png') }}"
                         alt="avatar" height="40" width="40">
                         <span class="avatar-status-online"></span>
                     </span>

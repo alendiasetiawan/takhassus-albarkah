@@ -21,13 +21,14 @@ class DaftarController extends Controller
     {
         $this->tahunAjaran = $info->tahunPsb();
         $this->DaftarService = $daftar;
+        $this->infoPsbService = $info;
     }
 
     public function pilihProgram() {
         $data = [
             'title' => 'Pilih Program',
             'lembaga' => Lembaga::find(1),
-            'psb' => InfoPsb::find(1),
+            'psb' => $this->infoPsbService->psbAktif(),
             'tajwid' => Program::daftarTajwid($this->tahunAjaran),
             'bahasaArab' => Program::daftarBahasa($this->tahunAjaran),
             'takmili' => Program::daftarTakmili($this->tahunAjaran),
@@ -46,7 +47,7 @@ class DaftarController extends Controller
             'pekerjaan' => Pekerjaan::all(),
             'kodeNegara' => KodeNegara::all(),
             'tahunPsb' => $this->tahunAjaran,
-            'psb' => InfoPsb::find(1),
+            'psb' => $this->infoPsbService->psbAktif(),
         ];
 
         return view('santri.formulir_online', $data);
