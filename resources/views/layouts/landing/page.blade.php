@@ -153,7 +153,7 @@
                     <ul class="list-inline">
                       <li class="me-2"><a href="https://api.whatsapp.com/send?phone=628111516756" target="_blank"><i class="fab fa-whatsapp"></i> 0811-1516-756</a>
                       </li>
-                      <li class="me-2"><a href="https://www.instagram.com/takhassus_albarkah/" target="_blank"><i class="fab fa-instagram"></i> @takhassus_albarkah</a>
+                      <li class="me-2"><a href="https://www.instagram.com/takhassus_albarkah/" target="_blank"><i class="fab fa-instagram"></i>takhassus_albarkah</a>
                       </li>
                     </ul>
                   </div>
