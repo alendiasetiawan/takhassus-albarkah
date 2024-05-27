@@ -10,16 +10,16 @@
                 </a>
             </li>
             <!--MANAJEMEN JURNAL PEMBELAJARAN-->
-            <li class=" navigation-header"><span data-i18n="Apps &amp; Pages">Data Induk</span><i data-feather="more-horizontal"></i>
+            <li class=" navigation-header"><span data-i18n="Apps &amp; Pages">PENERIMAAN SANTRI</span><i data-feather="more-horizontal"></i>
             </li>
             <li class="nav-item">
                 <a class="d-flex align-items-center" href="#"><i data-feather="book-open"></i>
                     <span class="menu-title text-truncate">Pendaftaran</span>
                 </a>
                 <ul class="menu-content">
-                    <li class="">
-                        <a class="d-flex align-items-center" wire:navigate href=""><i data-feather="circle"></i>
-                            <span class="menu-item text-truncate">Data Santri</span>
+                    <li class="{{ Route::is('admin::verifikasi_transfer') ? 'active' : '' }}">
+                        <a class="d-flex align-items-center" wire:navigate href="{{ route('admin::verifikasi_transfer') }}"><i data-feather="circle"></i>
+                            <span class="menu-item text-truncate">Verifikasi Transfer</span>
                         </a>
                     </li>
                     <li class="">

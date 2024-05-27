@@ -34,8 +34,11 @@ class Santri extends Model
         ->get();
     }
 
-    public static function queryPemasukan($tahunPsb) {
-        return Santri::where('tahun_psb', $tahunPsb)
+    public static function queryPendaftaran($tahunPsb) {
+        return Santri::with([
+            'program'
+        ])
+        ->where('tahun_psb', $tahunPsb)
         ->orderBy('id', 'desc');
     }
 
