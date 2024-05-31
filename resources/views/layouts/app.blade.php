@@ -66,7 +66,7 @@
     {{-- END: Sidebar --}}
 
     <!-- BEGIN: Bottom Navbar -->
-    {{-- @include('template.component.bottom_navbar') --}}
+    @include('layouts.navbars.admin_bottomnavbar')
     <!-- END: Bottom Navbar -->
 
     <!-- BEGIN: Content-->

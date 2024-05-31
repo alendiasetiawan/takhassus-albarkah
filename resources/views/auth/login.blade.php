@@ -50,7 +50,7 @@
           <div class="auth-wrapper auth-cover">
             <div class="auth-inner row m-0">
               <!-- Brand logo--><a class="brand-logo" href="/">
-                <img src="{{ asset('assets/logo-takhassus.png') }}" width="45" height="25">
+                <img src="{{ asset('landing/images/logo/takhassus-logo.webp') }}" width="45" height="25">
                 <h2 class="brand-text ms-1" style="color:#1277BF">Takhassus Al Barkah</h2></a>
               <!-- /Brand logo-->
               <!-- Left Text-->
