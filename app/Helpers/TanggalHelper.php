@@ -23,4 +23,9 @@ class TanggalHelper
         return Carbon::parse($tanggal)
             ->isoFormat('dddd, D MMMM Y');
     }
+
+    public static function hariTanggalWaktu($tanggal)
+    {
+        return Carbon::parse($tanggal)->isoFormat('LLLL');
+    }
 }

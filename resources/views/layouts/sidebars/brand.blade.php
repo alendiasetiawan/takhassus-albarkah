@@ -1,8 +1,8 @@
 <div class="navbar-header">
     <ul class="nav navbar-nav flex-row">
         <li class="nav-item me-auto">
-            <a class="navbar-brand" href="/">
-                <img src="{{ asset('assets/logo-takhassus.png') }}" width="60" height="25">
+            <a class="navbar-brand" href="/" wire:ignore>
+                <img src="{{ asset('assets/logo-takhassus.png') }}" width="40" height="25">
                 <h4 class="brand-text">Takhassus</h4>
             </a>
         </li>

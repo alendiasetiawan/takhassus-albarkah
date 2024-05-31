@@ -19,6 +19,11 @@ class Santri extends Model
         return $this->belongsTo(Program::class, 'program_id', 'id');
     }
 
+    public function pekerjaan(): BelongsTo
+    {
+        return $this->belongsTo(Pekerjaan::class, 'pekerjaan_id', 'id');
+    }
+
     public static function cariNama($tahunPsb, $dataSearch) {
         return Santri::join('program', 'santri.program_id', 'program.id')
         ->where('tahun_psb', $tahunPsb)
@@ -34,12 +39,36 @@ class Santri extends Model
         ->get();
     }
 
-    public static function queryPendaftaran($tahunPsb) {
+    public static function queryPendaftaran($tahunPsb, $filterData = null) {
         return Santri::with([
             'program'
         ])
+        ->when($filterData != null && isset($filterData['namaSantri']), function ($q) use ($filterData) {
+            return $q->where('nama', 'like', '%'.$filterData['namaSantri'].'%');
+        })
+        ->when($filterData != null && isset($filterData['tahunPsb']), function ($q) use ($filterData) {
+            return $q->where('tahun_psb', $filterData['tahunPsb']);
+        })
         ->where('tahun_psb', $tahunPsb)
         ->orderBy('id', 'desc');
+    }
+
+    public static function queryDataSantri($id) {
+        return Santri::with([
+            'program'
+        ])
+        ->where('id', $id)
+        ->first();
+    }
+
+    //Ambil data lengkap pendaftar
+    public static function detailPendaftar($kodeRegistrasi) {
+        return Santri::with([
+            'program',
+            'pekerjaan'
+        ])
+        ->where('kode_registrasi', $kodeRegistrasi)
+        ->firstOrFail();
     }
 
 }

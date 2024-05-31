@@ -4,7 +4,7 @@
             <div class="col-12">
                 <h2 class="content-header-title float-start mb-0">{{ $judul_halaman }}</h2>
                 <div class="breadcrumb-wrapper">
-                    <ol class="breadcrumb">
+                    <ol class="breadcrumb" wire:ignore>
                         <li class="breadcrumb-item"><a href="/"><i data-feather='home'></i></a>
                         </li>
                         @isset($halaman1)
