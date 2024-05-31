@@ -4,6 +4,6 @@
             -
             <a href="https://takhassusalbarkah.id" target="_blank">Takhassus Al Barkah</a>
         </span>
-        <span class="float-md-end d-none d-md-block">v0.1.1</span>
+        <span class="float-md-end d-none d-md-block">v0.3.1</span>
     </p>
 </footer>

@@ -36,7 +36,7 @@
 
                     <!--Back Home-->
                     @if (Route::is('admin::verifikasi_transfer'))
-                    <a wire:navigate href="{{ route('admin::dashboard') }}">
+                    <a href="{{ route('admin::dashboard') }}">
                         <i class="ficon d-md-none d-lg-none d-xl-none" data-feather="arrow-left"></i>
                     </a>
                     @endif
