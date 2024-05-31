@@ -35,7 +35,7 @@
                     @endif
 
                     <!--Back Home-->
-                    @if (Route::is('admin::verifikasi_transfer'))
+                    @if (Route::is('admin::verifikasi_transfer') || Route::is('admin::data_santri'))
                     <a href="{{ route('admin::dashboard') }}">
                         <i class="ficon d-md-none d-lg-none d-xl-none" data-feather="arrow-left"></i>
                     </a>
