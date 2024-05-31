@@ -164,6 +164,7 @@ class ComposerStaticInit9de69d7b97a09ca296f174438f13370f
             'Doctrine\\Inflector\\' => 19,
             'Doctrine\\Common\\Lexer\\' => 22,
             'Dflydev\\DotAccessData\\' => 22,
+            'Detection\\' => 10,
             'DeepCopy\\' => 9,
             'DebugBar\\' => 9,
             'Database\\Seeders\\' => 17,
@@ -361,8 +362,8 @@ class ComposerStaticInit9de69d7b97a09ca296f174438f13370f
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -510,6 +511,10 @@ class ComposerStaticInit9de69d7b97a09ca296f174438f13370f
         array (
             0 => __DIR__ . '/..' . '/dflydev/dot-access-data/src',
         ),
+        'Detection\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/mobiledetect/mobiledetectlib/src',
+        ),
         'DeepCopy\\' => 
         array (
             0 => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy',
@@ -558,6 +563,8 @@ class ComposerStaticInit9de69d7b97a09ca296f174438f13370f
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Helpers\\MataUangHelper' => __DIR__ . '/../..' . '/app/Helpers/MataUangHelper.php',
+        'App\\Helpers\\TanggalHelper' => __DIR__ . '/../..' . '/app/Helpers/TanggalHelper.php',
         'App\\Http\\Controllers\\Admin\\DashboardAdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/DashboardAdminController.php',
         'App\\Http\\Controllers\\Auth\\ConfirmPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ConfirmPasswordController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
@@ -586,8 +593,17 @@ class ComposerStaticInit9de69d7b97a09ca296f174438f13370f
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Http\\Requests\\Requests\\FormSantriBaruRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Requests/FormSantriBaruRequest.php',
         'App\\Livewire\\Admin\\DashboardAdmin' => __DIR__ . '/../..' . '/app/Livewire/Admin/DashboardAdmin.php',
+        'App\\Livewire\\Admin\\Pendaftaran\\DataSantri' => __DIR__ . '/../..' . '/app/Livewire/Admin/Pendaftaran/DataSantri.php',
+        'App\\Livewire\\Admin\\Pendaftaran\\DetailPendaftar' => __DIR__ . '/../..' . '/app/Livewire/Admin/Pendaftaran/DetailPendaftar.php',
+        'App\\Livewire\\Admin\\Pendaftaran\\VerifikasiTransfer' => __DIR__ . '/../..' . '/app/Livewire/Admin/Pendaftaran/VerifikasiTransfer.php',
+        'App\\Livewire\\Components\\Admin\\RekapJumlahPemasukan' => __DIR__ . '/../..' . '/app/Livewire/Components/Admin/RekapJumlahPemasukan.php',
+        'App\\Livewire\\Components\\DiagramPendaftarPerCabang' => __DIR__ . '/../..' . '/app/Livewire/Components/DiagramPendaftarPerCabang.php',
+        'App\\Livewire\\Components\\Pendaftaran\\ModalVerifikasiTransfer' => __DIR__ . '/../..' . '/app/Livewire/Components/Pendaftaran/ModalVerifikasiTransfer.php',
         'App\\Livewire\\Santri\\CariNamaPendaftar' => __DIR__ . '/../..' . '/app/Livewire/Santri/CariNamaPendaftar.php',
+        'App\\Models\\Cabang' => __DIR__ . '/../..' . '/app/Models/Cabang.php',
         'App\\Models\\InfoPsb' => __DIR__ . '/../..' . '/app/Models/InfoPsb.php',
+        'App\\Models\\JenisProgram' => __DIR__ . '/../..' . '/app/Models/JenisProgram.php',
+        'App\\Models\\Kitab' => __DIR__ . '/../..' . '/app/Models/Kitab.php',
         'App\\Models\\KodeNegara' => __DIR__ . '/../..' . '/app/Models/KodeNegara.php',
         'App\\Models\\Lembaga' => __DIR__ . '/../..' . '/app/Models/Lembaga.php',
         'App\\Models\\Pekerjaan' => __DIR__ . '/../..' . '/app/Models/Pekerjaan.php',
@@ -602,9 +618,11 @@ class ComposerStaticInit9de69d7b97a09ca296f174438f13370f
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
+        'App\\Providers\\StatusProvider' => __DIR__ . '/../..' . '/app/Providers/StatusProvider.php',
         'App\\Services\\CariNamaService' => __DIR__ . '/../..' . '/app/Services/CariNamaService.php',
         'App\\Services\\DaftarService' => __DIR__ . '/../..' . '/app/Services/DaftarService.php',
         'App\\Services\\InfoPsbService' => __DIR__ . '/../..' . '/app/Services/InfoPsbService.php',
+        'App\\Services\\SantriService' => __DIR__ . '/../..' . '/app/Services/SantriService.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'Barryvdh\\Debugbar\\Console\\ClearCommand' => __DIR__ . '/..' . '/barryvdh/laravel-debugbar/src/Console/ClearCommand.php',
         'Barryvdh\\Debugbar\\Controllers\\AssetController' => __DIR__ . '/..' . '/barryvdh/laravel-debugbar/src/Controllers/AssetController.php',
@@ -850,6 +868,11 @@ class ComposerStaticInit9de69d7b97a09ca296f174438f13370f
         'DeepCopy\\TypeFilter\\Spl\\SplDoublyLinkedListFilter' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeFilter/Spl/SplDoublyLinkedListFilter.php',
         'DeepCopy\\TypeFilter\\TypeFilter' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeFilter/TypeFilter.php',
         'DeepCopy\\TypeMatcher\\TypeMatcher' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeMatcher/TypeMatcher.php',
+        'Detection\\Cache\\Cache' => __DIR__ . '/..' . '/mobiledetect/mobiledetectlib/src/Cache/Cache.php',
+        'Detection\\Cache\\CacheException' => __DIR__ . '/..' . '/mobiledetect/mobiledetectlib/src/Cache/CacheException.php',
+        'Detection\\Cache\\CacheItem' => __DIR__ . '/..' . '/mobiledetect/mobiledetectlib/src/Cache/CacheItem.php',
+        'Detection\\Exception\\MobileDetectException' => __DIR__ . '/..' . '/mobiledetect/mobiledetectlib/src/Exception/MobileDetectException.php',
+        'Detection\\MobileDetect' => __DIR__ . '/..' . '/mobiledetect/mobiledetectlib/src/MobileDetect.php',
         'Dflydev\\DotAccessData\\Data' => __DIR__ . '/..' . '/dflydev/dot-access-data/src/Data.php',
         'Dflydev\\DotAccessData\\DataInterface' => __DIR__ . '/..' . '/dflydev/dot-access-data/src/DataInterface.php',
         'Dflydev\\DotAccessData\\Exception\\DataException' => __DIR__ . '/..' . '/dflydev/dot-access-data/src/Exception/DataException.php',

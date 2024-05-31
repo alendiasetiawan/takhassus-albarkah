@@ -34,18 +34,13 @@
                     </a>
                     @endif
 
-                    @if ($title == 'Pilih Statistik Hafalan Santri' || $title == 'Adab dan Ibadah Santri'
-                    || $title == 'Statistik Adab dan Ibadah Pekanan' || $title == 'Ujian Sketsa Murojaah' || $title == 'Landing Absensi Pengampu' || $title == 'Database Halaqoh'
-                    || $title == 'UAS Tahfizh' || $title == 'Rekap Nilai Akhir Tahfizh' || $title == 'Cetak Rapor Tahfizh' || $title == 'Data Murojaah Santri' || $title == 'Data Ziyadah Santri'
-                    || $title == 'Database Santri Tahfizh' || $title == 'Monitoring Absensi Santri Tahfizh' || $title == 'Riwayat Ziyadah' || $title == 'Riwayat Murojaah'
-                    || $title == 'Cek Ujian Sketsa Ziyadah' || $title == 'Cek Ujian Sketsa Murojaah' || $title == 'Cek Ujian Robtuz Ziyadah' || $title == 'Cek Ujian Robtul Manzil'
-                    || $title == 'Cek Ujian Kenaikan Juz' || $title == 'Cek Statistik Pekanan Ziyadah' || $title == 'Cek Statistik Bulanan Ziyadah' || $title == 'Data Santri Di Halaqoh'
-                    || $title == 'Ganti Password Santri' || $title == 'Profil Santri' || $title == 'Detail Absensi Santri' || $title == 'Statistik Bulanan Ziyadah Santri'
-                    || $title == 'Statistik Bulanan Murojaah Santri' || $title == 'Pilih Hafalan' || $title == 'Pilih Ujian Tahfizh' || $title == 'Dokumentasi Halaqoh Santri')
-                    <a href="/">
+                    <!--Back Home-->
+                    @if (Route::is('admin::verifikasi_transfer'))
+                    <a wire:navigate href="{{ route('admin::dashboard') }}">
                         <i class="ficon d-md-none d-lg-none d-xl-none" data-feather="arrow-left"></i>
                     </a>
                     @endif
+                    <!--#Back Home-->
 
                     <!--BACK BUTTON-->
                     @if ($title == 'Detail Riwayat Ziyadah Santri' || $title == 'Riwayat Ziyadah Santri Di Halaqoh' ||
@@ -54,21 +49,6 @@
                     || $title == 'Santri Tidak Lulus Ujian Robtuz Ziyadah' || $title == 'Santri Lulus Ujian Robtul Manzil' || $title == 'Santri Belum Ujian Robtul Manzil'
                     || $title == 'Santri Tidak Lulus Ujian Robtul Manzil' || $title == 'Detail Riwayat Ujian Kenaikan Juz Santri')
                     <a href="#" onclick="history.back()">
-                        <i class="ficon d-md-none d-lg-none d-xl-none" data-feather="arrow-left"></i>
-                    </a>
-                    @endif
-
-                    <!--Menu Log Ziyadah/Murojaah [Login Santri]-->
-                    @if ($title == 'Riwayat Ziyadah Santri' || $title == 'Riwayat Murojaah Santri')
-                    <a href="/santri/pilih-hafalan">
-                        <i class="ficon d-md-none d-lg-none d-xl-none" data-feather="arrow-left"></i>
-                    </a>
-                    @endif
-
-                    <!--Menu Hasil Ujian Tahfizh [Login Santri]-->
-                    @if ($title == 'Hasil Ujian Sketsa Ziyadah Santri' || $title == 'Hasil Ujian Sketsa Murojaah Santri'
-                    || $title == 'Hasil Ujian Kenaikan Juz Santri')
-                    <a href="/santri/pilih-ujian-tahfizh">
                         <i class="ficon d-md-none d-lg-none d-xl-none" data-feather="arrow-left"></i>
                     </a>
                     @endif
