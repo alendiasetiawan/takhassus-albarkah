@@ -1,5 +1,5 @@
 <div>
-    <x-modals.project-modal id="{{ $idModal }}">
+    <x-modals.project-modal id="{{ $idModal }}" wire:ignore.self>
         <x-slot:title>Verifikasi Bukti Transfer</x-slot:title>
         <form wire:submit='simpanStatus'>
             <div class="row">

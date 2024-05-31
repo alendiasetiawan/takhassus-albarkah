@@ -13,9 +13,7 @@ use App\Services\SantriService;
 use App\Services\InfoPsbService;
 use App\Providers\StatusProvider;
 use Livewire\Attributes\Computed;
-use PhpParser\Node\Expr\FuncCall;
 use Livewire\WithoutUrlPagination;
-use Illuminate\Support\Facades\Redirect;
 
 class VerifikasiTransfer extends Component
 {
@@ -24,7 +22,7 @@ class VerifikasiTransfer extends Component
     //String
     public $tahunPsb, $cariSantri = null, $wa, $nama, $program, $url = null;
     //Integer
-    public $limitData = 10, $idPendaftar;
+    public $limitData = 10, $idPendaftar, $tambahData = 10;
     //Collection
     public $filterData = null, $infoPsb, $psb;
     //Boolean
@@ -62,6 +60,11 @@ class VerifikasiTransfer extends Component
     #[On('simpan-status')]
     public function fetchDataPendaftar() {
         $this->dataPendaftar();
+    }
+
+    #[On('load-data')]
+    public function loadMore($addData) {
+        $this->limitData += $addData;
     }
 
     public function boot(SantriService $santriService, MobileDetect $mobileDetect) {
