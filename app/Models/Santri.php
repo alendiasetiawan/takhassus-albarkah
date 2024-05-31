@@ -49,8 +49,10 @@ class Santri extends Model
         ->when($filterData != null && isset($filterData['tahunPsb']), function ($q) use ($filterData) {
             return $q->where('tahun_psb', $filterData['tahunPsb']);
         })
-        ->where('tahun_psb', $tahunPsb)
-        ->orderBy('id', 'desc');
+        ->when($filterData != null && isset($filterData['program']), function ($q) use ($filterData) {
+            return $q->where('program_id', $filterData['program']);
+        })
+        ->where('tahun_psb', $tahunPsb);
     }
 
     public static function queryDataSantri($id) {

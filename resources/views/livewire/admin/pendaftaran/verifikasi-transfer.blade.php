@@ -1,4 +1,6 @@
 <div>
+    @use('\App\Helpers\TanggalHelper', 'TanggalHelper')
+
     @push('vendorCss')
     <link rel="stylesheet" type="text/css" href="{{ asset('style/app-assets/vendors/css/extensions/toastr.min.css') }}">
     @endpush
@@ -59,17 +61,19 @@
                                     <th>Nama Santri</th>
                                     <th>Jenis</th>
                                     <th>Program</th>
-                                    <th>Status Transfer</th>
+                                    <th>Tanggal Daftar</th>
+                                    <th>Transfer</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @forelse ($this->dataPendaftar as $pendaftar)
-                                    <tr>
+                                    <tr wire:key='table-{{ $pendaftar->id }}'>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $pendaftar->nama }}</td>
                                         <td>{{ $pendaftar->jk }}</td>
                                         <td>{{ $pendaftar->program?->nama_program }}</td>
+                                        <td>{{ TanggalHelper::konversiTanggalPenuh($pendaftar->created_at) }}</td>
                                         <td>
                                             @if ($pendaftar->status_transfer == \App\Providers\StatusProvider::TRANSFER_VALID)
                                                 <x-items.light-badge color="success" content="Valid"/>
@@ -87,8 +91,8 @@
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-dollar-sign text-{{ $pendaftar->status_transfer == \App\Providers\StatusProvider::TRANSFER_VALID ? 'success' : 'warning' }}"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
                                             </x-buttons.outline>
                                             <a wire:navigate href="{{ route('admin::detail_pendaftar', [$pendaftar->kode_registrasi]) }}">
-                                                <x-buttons.outline color="info" class="btn-icon btn-sm">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text text-info"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                                                <x-buttons.outline color="primary" class="btn-icon btn-sm">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text text-primary"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
                                                 </x-buttons.outline>
                                             </a>
                                         </td>
