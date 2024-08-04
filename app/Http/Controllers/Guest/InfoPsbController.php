@@ -34,7 +34,7 @@ class InfoPsbController extends Controller
     }
 
     public function download(){
-        $file = public_path('files/PSB-Takhassus-Al-Barkah-2024-2025.pdf');
+        $file = public_path('files/PSB-Takhassus-2024-2025.pdf');
 
         return response()->download($file);
     }

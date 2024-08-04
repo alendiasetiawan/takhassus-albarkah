@@ -459,15 +459,15 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 col-md-12 mb-3">
-                    <a href="{{ asset('landing/images/PSB-Takhassus-1.jpeg') }}" target="_blank">
+                    <a href="{{ asset('landing/images/PSB-2024-2025-1.jpeg') }}" target="_blank">
                         <img class="img-fluid wow fadeInUp"
-                            src="{{ asset('landing/images/PSB-Takhassus-1.jpeg') }}" alt="">
+                            src="{{ asset('landing/images/PSB-2024-2025-1.jpeg') }}" alt="">
                     </a>
                 </div>
                 <div class="col-lg-6 col-md-12 mb-3">
-                    <a href="{{ asset('landing/images/PSB-Takhassus-2.jpeg') }}" target="_blank">
+                    <a href="{{ asset('landing/images/PSB-2024-2025-2.jpeg') }}" target="_blank">
                         <img class="img-fluid wow fadeInUp"
-                            src="{{ asset('landing/images/PSB-Takhassus-2.jpeg') }}" alt="">
+                            src="{{ asset('landing/images/PSB-2024-2025-2.jpeg') }}" alt="">
                     </a>
                 </div>
                 <div class="col-lg-12 col-12 d-flex justify-content-center">
